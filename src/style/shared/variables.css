@@ -1,0 +1,11 @@
+:root {
+  --party-sidebar-primary-bg: #262B33;
+  --party-sidebar-meter-color-default: #575D66;
+  --party-sidebar-meter-color-hp: #6A9963;
+  --party-sidebar-meter-color-encumbrance: #5C87CC;
+
+  --party-sidebar-chip-movement-bg: var(--party-sidebar-meter-color-encumbrance);
+  --party-sidebar-chip-attack-bg: #996B63;
+
+  --party-sidebar-text-shadow: 1px 1px rgba(0, 0, 0, .5);
+}

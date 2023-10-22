@@ -1,0 +1,9 @@
+{
+  "UFT": {
+    "partytab": {
+      "title": "Party",
+      "addToParty": "Add to Party",
+      "removeFromParty": "Remove from Party"
+    }
+  }
+}

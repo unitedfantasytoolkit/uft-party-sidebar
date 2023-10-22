@@ -1,0 +1,11 @@
+<span class="party-chip{{#if bemMod}} party-chip--{{bemMod}}{{/if}}">
+  <i class="fas {{icon}}"></i>
+  <span class="party-chip__value">
+    {{!-- Note: the eq helper comes from the system! --}}
+    {{#unless (eq value null)}}
+      {{value}}
+    {{else}}
+      --
+    {{/unless}}
+  </span>
+</span>

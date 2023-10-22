@@ -1,0 +1,75 @@
+.party-sidebar .party-meter {
+  display: grid;
+  align-items: center;
+  grid-template-columns: max-content 1fr;
+  gap: 8px;
+
+  --party-sidebar-meter-color: var(--party-sidebar-meter-color-default);
+
+  &--hp {
+    --party-sidebar-meter-color: var(--party-sidebar-meter-color-hp);
+  }
+  &--encumbrance {
+    --party-sidebar-meter-color: var(--party-sidebar-meter-color-encumbrance);
+  }
+
+  &:not(:last-of-type) {
+    margin-bottom: 8px;
+  }
+  
+  meter {
+    justify-self: start;
+    height: 100%;
+    width: 100%;
+    /* height: 2em; */
+    position: relative;
+
+    text-align: center;
+    /* font-size: .8em; */
+    font-weight: 700;
+
+
+    &:after {
+      position: absolute;
+      content: attr(value) "/" attr(max);
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      text-shadow: var(--party-sidebar-text-shadow);
+    }
+
+    &::-webkit-meter {
+      &-inner-element {
+      }
+      &-bar {
+        height: 1.25em;
+        border-radius: 4px;
+        background-color: var(--party-sidebar-primary-bg);
+        border-color: var(--party-sidebar-meter-color-default);
+      }
+      &-optimum-value {
+        background: var(--party-sidebar-meter-color);
+      }
+      &-suboptimum-value {}
+      &-even-less-good-value {}
+    }
+  }
+
+  .associated-field {
+    display: flex;
+    gap: .25em;
+    text-align: center;
+    align-items: center;
+    justify-self: end;
+
+    i {
+      width: 1em;
+      text-align: center;
+    }
+
+    span {
+      display: inline-block;
+      min-width: 15px;
+    }
+  }
+}

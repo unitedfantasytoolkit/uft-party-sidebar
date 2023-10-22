@@ -1,0 +1,27 @@
+.party-sidebar .party-chip {
+  display: flex;
+  gap: .25em;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3px;
+  background-color: #4b4a44;
+  color: #f5f5f5;
+  white-space: nowrap;
+  padding: 1px 3px;
+  box-shadow: 0 0 1px #d8d6c9;
+  text-align: right;
+  font-weight: 700;
+  text-shadow: var(--party-sidebar-text-shadow);
+
+  &--vertical {
+    flex-direction: column;
+  }
+
+  &--attack {
+    background-color: var(--party-sidebar-chip-attack-bg);
+  }
+
+  &--movement {
+    background-color: var(--party-sidebar-chip-movement-bg);
+  }
+}

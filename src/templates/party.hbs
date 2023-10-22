@@ -1,0 +1,85 @@
+<section class="{{cssClass}}" id="{{cssId}}" data-tab="{{tabName}}">
+  <style>
+    #sidebar nav a {
+      --sidebar-tab-width: 22px;
+      font-size: .9em;
+    }
+  </style>
+  {{#if user.isGM}}
+  <header class="party-header">
+    <div class="header-actions action-buttons flexrow">
+      {{!--
+        @TODO: We can't easily distribute XP until we have
+               a way to access the party XP application 
+               from the system
+      --}}
+      {{!--<button type="button" class="add-xp"><i class="fas fa-plus"></i> Distribute XP</button>--}}
+      {{!--<button type="button" class="distribute-treasure"><i class="fas fa-treasure-chest"></i> Distribute Treasure</button>--}}
+    </div>
+  </header>
+  {{/if}}
+  {{#if party.length}}
+  <ul class="party-list">
+    {{#each party}}
+      <li class="party-list__item" data-entry-id="{{id}}">
+        <img src="{{img}}" class="thumbnail" alt="" />
+
+        <section>
+          <header class="party-list__item__header">
+            <h4 class="entry-name document-name">{{name}}</h4>
+            
+            <div class="party-meter party-meter--hp" aria-label="">
+              <i class="fas fa-heart"></i>
+              <meter value="{{system.hp.value}}" min="0" max="{{system.hp.max}}" >{{system.hp.value}}/{{system.hp.max}}</meter>
+            </div>
+
+            <div class="party-meter party-meter--encumbrance" aria-label="">
+              <i class="fas fa-sack"></i>
+              <meter value="{{system.encumbrance.value}}" min="0" max="{{system.encumbrance.max}}"></meter>
+            </div>
+          </header>
+
+          <main class="party-list__item__main">
+            <div class="party-list__item__main__block party-list__item__main__block--saves">
+              {{> (partial 'chip.hbs') bemMod="save" value=system.saves.death.value icon="fa-skull" title="OSE."}}
+              {{> (partial 'chip.hbs') bemMod="save" value=system.saves.wand.value icon="fa-magic" title="OSE."}}
+              {{> (partial 'chip.hbs') bemMod="save" value=system.saves.paralysis.value icon="fa-block-brick" title="OSE."}}
+              {{> (partial 'chip.hbs') bemMod="save" value=system.saves.breath.value icon="fa-dragon" title="OSE."}}
+              {{> (partial 'chip.hbs') bemMod="save" value=system.saves.spell.value icon="fa-book-sparkles" title="OSE."}}
+            </div>
+
+            <div class="party-list__item__main__block party-list__item__main__block--combat">
+              {{#if system.usesAscendingAC}}
+                {{> (partial 'chip.hbs') bemMod="attack" value=(signed system.thac0.bba) icon="fa-crosshairs" title="OSE.AB"}}
+              {{else}}
+                {{> (partial 'chip.hbs') bemMod="attack" value=system.thac0.value icon="fa-crosshairs" title="OSE.THAC0"}}
+              {{/if}}
+
+              {{> (partial 'chip.hbs') bemMod="attack" value=(signed system.meleeMod) icon="fa-sword"}}
+              {{> (partial 'chip.hbs') bemMod="attack" value=(signed system.rangedMod) icon="fa-bow-arrow"}}
+
+              {{#if system.usesAscendingAC}}
+                {{> (partial 'chip.hbs') bemMod="defense" value=system.aac.value icon="fa-shield-alt" title="OSE."}}
+              {{else}}
+                {{> (partial 'chip.hbs') bemMod="defense" value=system.ac.value icon="fa-shield-alt" title="OSE."}}
+              {{/if}}
+
+              {{> (partial 'chip.hbs') bemMod="save" value=(signed system.scores.wis.mod) icon="fa-sparkle" title="OSE.THAC0"}}
+            </div>
+
+            <div class="party-list__item__main__block party-list__item__main__block--movement">
+              {{> (partial 'chip.hbs') bemMod="movement" value=system.movement.encounter icon="fa-person-walking"}}
+              {{> (partial 'chip.hbs') bemMod="movement" value=system.movement.base icon="fa-person-walking-with-cane"}}
+              {{> (partial 'chip.hbs') bemMod="movement" value=system.movement.overland icon="fa-person-hiking"}}
+            </div>
+          </main>
+        </section>
+      </li>
+    {{/each}}
+  </ul>
+  {{else}}
+    <p class="empty">
+      No actors are currently in the party.
+    </p>
+  {{/if}}
+</section>

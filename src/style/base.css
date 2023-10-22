@@ -1,0 +1,12 @@
+/*
+  Excessive specificity so we can be sure our styles get applied
+*/
+.party-sidebar {
+  flex-direction: column;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &[data-tab].active {
+    display: flex;
+  }
+}

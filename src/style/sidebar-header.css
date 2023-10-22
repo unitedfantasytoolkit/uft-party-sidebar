@@ -1,0 +1,29 @@
+.party-sidebar {
+  .party-header {
+    margin-bottom: 3px;
+  }
+
+  .action-buttons {
+    button {
+      min-width: max-content;
+      white-space: nowrap;
+      margin: 4px;
+      line-height: 26px;
+      height: 28px;
+    }
+  }
+
+  .header-search {
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    & > * {
+      flex: 0 0 24px;
+    }
+    input {
+      flex: 1;
+      margin: 0 3px;
+      background: rgba(255, 255, 245, 0.8);
+    }
+  }
+}

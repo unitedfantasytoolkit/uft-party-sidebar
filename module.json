@@ -1,0 +1,34 @@
+{
+  "id": "uft-party-sidebar",
+  "title": "Party Sidebar for Universal Fantasy Toolkit",
+  "description": "Display the current party in your UFT-compatible game in Foundry's sidebar!",
+  "authors": [
+    {
+      "name": "wyrmisis",
+      "discord": "wyrmisis"
+    }
+  ],
+  "esmodules": [
+    "dist/js/bundle.min.js"
+  ],
+  "styles": [
+    "dist/css/bundle.css"
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "compatibility": {
+    "minimum": 11,
+    "verified": 11,
+    "maximum": 11
+  },
+  "license": "LICENSE",
+  "version": "auto-replaced",
+  "url": "auto-replaced",
+  "manifest": "auto-replaced",
+  "download": "auto-replaced"
+}
